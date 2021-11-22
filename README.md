@@ -75,10 +75,10 @@ here is another great tutorial for complete beginners - [Getting Started With No
 ## Getting Started
 :exclamation:
 **Henry Edit**:
-:exclamation: /n
-After npm install, duplicate the .env.example file into a new file just called .env
-Change the second line, 'MONGO_URI =' to the line I put in the groupme.
-Then it should run when you start the app! 
+:exclamation:\
+After npm install, duplicate the .env.example file into a new file just called .env\
+Change the second line, 'MONGO_URI =' to the line I put in the groupme.\
+Then it should run when you start the app! \
 
 ```bash
 # Get the latest snapshot
