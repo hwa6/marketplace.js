@@ -73,9 +73,9 @@ helpful for learning the basics of Node and Express. Alternatively,
 here is another great tutorial for complete beginners - [Getting Started With Node.js, Express, MongoDB](http://cwbuecheler.com/web/tutorials/2013/node-express-mongo/).
 
 ## Getting Started
-:exclamation::exclamation:\
+:exclamation::exclamation::exclamation:\
 **Henry Edit**:\
-:exclamation::exclamation:\
+:exclamation::exclamation::exclamation:\
 After npm install, duplicate the .env.example file into a new file just called .env\
 Change the second line, 'MONGO_URI =' to the line I put in the groupme.\
 Then it should run when you start the app! \
