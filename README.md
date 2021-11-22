@@ -117,7 +117,10 @@ here is another great tutorial for complete beginners - [Getting Started With No
 
 ## Getting Started
 
-The easiest way to get started is to clone the repository:
+Henry Edit:
+After npm install, duplicate the .env.example file into a new file just called .env
+Change the second line, 'MONGO_URI =' to the line I put in the groupme.
+Then it should run when you start the app! 
 
 ```bash
 # Get the latest snapshot
@@ -128,6 +131,7 @@ cd myproject
 
 # Install NPM dependencies
 npm install
+
 
 # Then simply start your app
 node app.js
