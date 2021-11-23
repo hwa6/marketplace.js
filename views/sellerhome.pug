@@ -2,5 +2,16 @@ extends layout
 
 block content
   h1 Hello Seller
-  p.lead From here you can view your listings.
-  
+  p.lead From here you can view your listings.  
+  form(method='POST', action='/newItem')
+    input(type='hidden', name='_csrf', value=_csrf)
+    h2 Create New Listing
+    p Enter the information for your listing.
+      p
+        | Title: 
+        input(type='text', name='title', value='')
+        | Description: 
+        input(type='text', name='description', value='')  
+    input(type = 'submit', value = "Submit")
+
+    

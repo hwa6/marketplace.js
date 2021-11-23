@@ -2,9 +2,9 @@ const mongoose = require('mongoose');
 
 const itemSchema = new mongoose.Schema(
   {
-    creatorEmail: string,
-    tile: string,
-    body: string,
+    creatorEmail: String,
+    title: String,
+    body: String,
     //image: { data: Buffer, contentType: String },
   },
   { timestamps: true }

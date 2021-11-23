@@ -32,6 +32,7 @@ const homeController = require('./controllers/home');
 const userController = require('./controllers/user');
 const apiController = require('./controllers/api');
 const contactController = require('./controllers/contact');
+const itemController = require('./controllers/item');
 
 /**
  * API keys and Passport configuration.
@@ -160,6 +161,10 @@ app.use(
     { maxAge: 31557600000 }
   )
 );
+/**
+ * New routes for listings/items
+ */
+app.post('/newItem', itemController.newItem);
 
 /**
  * Primary app routes.
