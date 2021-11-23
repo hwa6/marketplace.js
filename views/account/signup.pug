@@ -10,6 +10,16 @@ block content
       .col-md-7
         input.form-control(type='email', name='email', id='email', placeholder='Email', autofocus, autocomplete='email', required)
     .form-group.row
+      label.col-md-3.col-form-label.font-weight-bold.text-right Role
+      .col-sm-6
+        .form-check.form-check-inline
+          input(type='radio', class='form-check-input'  name='role', value='buyer', data-toggle='radio')
+          label.form-check-label Buyer
+
+        .form-check.form-check-inline
+          input(type='radio', class='form-check-input'  name='role', value='seller', data-toggle='radio')
+          label.form-check-label Seller
+    .form-group.row
       label.col-md-3.col-form-label.font-weight-bold.text-right(for='password') Password
       .col-md-7
         input.form-control(type='password', name='password', id='password', placeholder='Password', autocomplete='new-password', minlength='8', required)
