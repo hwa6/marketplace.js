@@ -9,7 +9,6 @@ This line too.
 
 Nathaniel Added this line to test the repository.
 
-
 ## Table of Contents
 
 - [Features](#features)
@@ -37,6 +36,7 @@ Nathaniel Added this line to test the repository.
 - [License](#license)
 
 ## Getting Started
+
 :exclamation::exclamation::exclamation:\
 **Henry Edit**:\
 :exclamation::exclamation::exclamation:\
@@ -56,7 +56,7 @@ npm install
 
 
 # Then simply start your app
-node app.js
+nodemon app.js
 ```
 
 **Warning:** If you want to use some API that need https to work (for example Pinterest or facebook),
@@ -542,11 +542,11 @@ That's a custom error message defined in `app.js` to indicate that there was a
 problem connecting to MongoDB:
 
 ```js
-mongoose.connection.on("error", (err) => {
+mongoose.connection.on('error', (err) => {
   console.error(err);
   console.log(
-    "%s MongoDB connection error. Please make sure MongoDB is running.",
-    chalk.red("✗")
+    '%s MongoDB connection error. Please make sure MongoDB is running.',
+    chalk.red('✗')
   );
   process.exit();
 });
@@ -628,8 +628,8 @@ Let's see how it looks. Create a new controller **escapeVelocity** inside `contr
 
 ```js
 exports.escapeVelocity = (req, res) => {
-  res.render("escape-velocity", {
-    title: "Landing Page",
+  res.render('escape-velocity', {
+    title: 'Landing Page',
   });
 };
 ```
@@ -637,7 +637,7 @@ exports.escapeVelocity = (req, res) => {
 And then create a route in `app.js`. I placed it right after the index controller:
 
 ```js
-app.get("/escape-velocity", homeController.escapeVelocity);
+app.get('/escape-velocity', homeController.escapeVelocity);
 ```
 
 Restart the server (if you are not using **nodemon**); then you should see the new template at [http://localhost:8080/escape-velocity](http://localhost:8080/escape-velocity).
@@ -685,11 +685,11 @@ returns all errors as an array of objects, where each object has a `msg` propert
 
 ```js
 [
-  { param: "name", msg: "Name is required", value: "<received input>" },
+  { param: 'name', msg: 'Name is required', value: '<received input>' },
   {
-    param: "email",
-    msg: "A valid email is required",
-    value: "<received input>",
+    param: 'email',
+    msg: 'A valid email is required',
+    value: '<received input>',
   },
 ];
 ```
@@ -748,7 +748,7 @@ are what's called middleware. Think of middleware as a door. If this door preven
 continuing forward, you won't get to your callback function. One such example is a route that requires authentication.
 
 ```js
-app.get("/account", passportConfig.isAuthenticated, userController.getAccount);
+app.get('/account', passportConfig.isAuthenticated, userController.getAccount);
 ```
 
 It always goes from left to right. A user visits `/account` page. Then `isAuthenticated` middleware checks if you are authenticated:
@@ -758,7 +758,7 @@ exports.isAuthenticated = (req, res, next) => {
   if (req.isAuthenticated()) {
     return next();
   }
-  res.redirect("/login");
+  res.redirect('/login');
 };
 ```
 
@@ -767,8 +767,8 @@ next middleware until it reaches the last argument, which is a callback function
 
 ```js
 exports.getAccount = (req, res) => {
-  res.render("account/profile", {
-    title: "Account Management",
+  res.render('account/profile', {
+    title: 'Account Management',
   });
 };
 ```
@@ -781,7 +781,7 @@ Here is a typical workflow for adding new routes to your application. Let's say 
 **Step 1.** Start by defining a route.
 
 ```js
-app.get("/books", bookController.getBooks);
+app.get('/books', bookController.getBooks);
 ```
 
 ---
@@ -790,7 +790,7 @@ app.get("/books", bookController.getBooks);
 
 ```js
 app
-  .route("/books")
+  .route('/books')
   .get(bookController.getBooks)
   .post(bookController.createBooks)
   .put(bookController.updateBooks)
@@ -801,7 +801,7 @@ And here is how a route would look if it required an _authentication_ and an _au
 
 ```js
 app
-  .route("/api/twitter")
+  .route('/api/twitter')
   .all(passportConfig.isAuthenticated)
   .all(passportConfig.isAuthorized)
   .get(apiController.getTwitter)
@@ -813,13 +813,13 @@ Use whichever style that makes sense to you. Either one is acceptable. I think t
 **Step 2.** Create a new schema and a model `Book.js` inside the _models_ directory.
 
 ```js
-const mongoose = require("mongoose");
+const mongoose = require('mongoose');
 
 const bookSchema = new mongoose.Schema({
   name: String,
 });
 
-const Book = mongoose.model("Book", bookSchema);
+const Book = mongoose.model('Book', bookSchema);
 module.exports = Book;
 ```
 
@@ -830,11 +830,11 @@ module.exports = Book;
  * GET /books
  * List all books.
  */
-const Book = require("../models/Book.js");
+const Book = require('../models/Book.js');
 
 exports.getBooks = (req, res) => {
   Book.find((err, docs) => {
-    res.render("books", { books: docs });
+    res.render('books', { books: docs });
   });
 };
 ```
@@ -842,7 +842,7 @@ exports.getBooks = (req, res) => {
 **Step 4.** Import that controller in `app.js`.
 
 ```js
-const bookController = require("./controllers/book");
+const bookController = require('./controllers/book');
 ```
 
 **Step 5.** Create `books.pug` template.
@@ -862,9 +862,9 @@ block content
 That's it! I will say that you could have combined Step 1, 2, 3 as following:
 
 ```js
-app.get("/books", (req, res) => {
+app.get('/books', (req, res) => {
   Book.find((err, docs) => {
-    res.render("books", { books: docs });
+    res.render('books', { books: docs });
   });
 });
 ```
@@ -904,7 +904,7 @@ And what if you are deploying to OpenShift? They do support websockets, but it i
 preview state. So, for OpenShift you would need to change the socket.io connect URI to the following:
 
 ```js
-const socket = io.connect("http://yoursite-namespace.rhcloud.com:8000");
+const socket = io.connect('http://yoursite-namespace.rhcloud.com:8000');
 ```
 
 Wait, why is it on port 8000? Who knows, and if I didn't run across this [blog post](http://velin-georgiev-blog.appspot.com/blog/set-up-nodejs-express-socketio-application-using-websockets-on-openshift-by-red-hat/)
@@ -925,8 +925,8 @@ Replace `const app = express();` with the following code:
 
 ```js
 const app = express();
-const server = require("http").Server(app);
-const io = require("socket.io")(server);
+const server = require('http').Server(app);
+const io = require('socket.io')(server);
 ```
 
 I like to have the following code organization in `app.js` (from top to bottom): module dependencies,
@@ -936,13 +936,13 @@ start the server, socket.io stuff. That way I always know where to look for thin
 Add the following code at the end of `app.js`:
 
 ```js
-io.on("connection", (socket) => {
-  socket.emit("greet", { hello: "Hey there browser!" });
-  socket.on("respond", (data) => {
+io.on('connection', (socket) => {
+  socket.emit('greet', { hello: 'Hey there browser!' });
+  socket.on('respond', (data) => {
     console.log(data);
   });
-  socket.on("disconnect", () => {
-    console.log("Socket disconnected");
+  socket.on('disconnect', () => {
+    console.log('Socket disconnected');
   });
 });
 ```
@@ -997,9 +997,9 @@ script code into `main.js`, inside the `$(document).ready()` function:
 $(document).ready(function () {
   // Place JavaScript code here...
   let socket = io.connect(window.location.href);
-  socket.on("greet", function (data) {
+  socket.on('greet', function (data) {
     console.log(data);
-    socket.emit("respond", { message: "Hey there, server!" });
+    socket.emit('respond', { message: 'Hey there, server!' });
   });
 });
 ```
@@ -1015,7 +1015,7 @@ And we are done!
 Declares a read-only named constant.
 
 ```js
-const name = "yourName";
+const name = 'yourName';
 ```
 
 Declares a block scope local variable.
@@ -1029,7 +1029,7 @@ let index = 0;
 Using the **\`${}\`** syntax, strings can embed expressions.
 
 ```js
-const name = "Oggy";
+const name = 'Oggy';
 const age = 3;
 
 console.log(`My cat is named ${name} and is ${age} years old.`);
@@ -1040,11 +1040,11 @@ console.log(`My cat is named ${name} and is ${age} years old.`);
 To import functions, objects or primitives exported from an external module. These are the most common types of importing.
 
 ```js
-const name = require("module-name");
+const name = require('module-name');
 ```
 
 ```js
-const { foo, bar } = require("module-name");
+const { foo, bar } = require('module-name');
 ```
 
 To export functions, objects or primitives from a given file or module.
@@ -1054,7 +1054,7 @@ module.exports = { myFunction };
 ```
 
 ```js
-module.exports.name = "yourName";
+module.exports.name = 'yourName';
 ```
 
 ```js
@@ -1191,14 +1191,14 @@ var MM = now.getMonth() + 1;
 var YYYY = now.getFullYear();
 
 if (DD < 10) {
-  DD = "0" + DD;
+  DD = '0' + DD;
 }
 
 if (MM < 10) {
-  MM = "0" + MM;
+  MM = '0' + MM;
 }
 
-console.log(MM + "-" + DD + "-" + YYYY); // 03-30-2016
+console.log(MM + '-' + DD + '-' + YYYY); // 03-30-2016
 ```
 
 ```MomentJS
@@ -1210,13 +1210,13 @@ console.log(moment(new Date(), 'MM-DD-YYYY'));
 var now = new Date();
 var hours = now.getHours();
 var minutes = now.getMinutes();
-var amPm = hours >= 12 ? "pm" : "am";
+var amPm = hours >= 12 ? 'pm' : 'am';
 
 hours = hours % 12;
 hours = hours ? hours : 12;
-minutes = minutes < 10 ? "0" + minutes : minutes;
+minutes = minutes < 10 ? '0' + minutes : minutes;
 
-console.log(hours + ":" + minutes + " " + amPm); // 1:43 am
+console.log(hours + ':' + minutes + ' ' + amPm); // 1:43 am
 ```
 
 ```MomentJS
@@ -1260,7 +1260,7 @@ User.find((err, users) => {
 #### Find a user by email:
 
 ```js
-let userEmail = "example@gmail.com";
+let userEmail = 'example@gmail.com';
 User.findOne({ email: userEmail }, (err, user) => {
   console.log(user);
 });
@@ -1286,7 +1286,7 @@ the count. Or you could use [MongoDB Aggregation Framework](https://docs.mongodb
 
 ```js
 User.aggregate(
-  { $group: { _id: null, total: { $sum: "$votes" } } },
+  { $group: { _id: null, total: { $sum: '$votes' } } },
   (err, votesCount) => {
     console.log(votesCount.total);
   }
@@ -1380,7 +1380,7 @@ Please note that you may also use the [Herko Dashboard](https://dashboard.heroku
 Add these two lines to `app.js`, just place them anywhere before `app.listen()`:
 
 ```js
-var IP_ADDRESS = process.env.OPENSHIFT_NODEJS_IP || "127.0.0.1";
+var IP_ADDRESS = process.env.OPENSHIFT_NODEJS_IP || '127.0.0.1';
 var PORT = process.env.OPENSHIFT_NODEJS_PORT || 8080;
 ```
 
