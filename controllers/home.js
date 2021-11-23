@@ -16,7 +16,7 @@ exports.index = (req, res) => {
         console.log(items);
         res.render('sellerhome', {
           title: 'Seller Home',
-          sellerItems: items,
+          items: items,
         });
       });
     } else if (req.user.role == 'buyer') {
