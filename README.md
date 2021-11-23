@@ -42,7 +42,7 @@ Nathaniel Added this line to test the repository.
 After npm install, duplicate the .env.example file into a new file just called .env\
 Change the second line, 'MONGO_URI =' to the line I put in the groupme.\
 Then it should run when you start the app!\
-:exclamation::exclamation::exclamation:\
+:exclamation::exclamation::exclamation:
 
 ```bash
 # Get the latest snapshot
@@ -63,7 +63,7 @@ nodemon app.js
 **Henry Edit**:\
 I have configured the package such that it should install nodemon by default. If it doesn't that is because I messed up.\
 If `nodemon app.js` generates an error, use the command `sudo npm install -g nodemon` to install it on your machine.\
-:exclamation::exclamation::exclamation:\
+:exclamation::exclamation::exclamation:
 
 **Note:** I highly recommend installing [Nodemon](https://github.com/remy/nodemon).
 It watches for any changes in your node.js app and automatically restarts the
