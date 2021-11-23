@@ -141,7 +141,6 @@ exports.getSignup = (req, res) => {
  * Create a new local account.
  */
 exports.postSignup = (req, res, next) => {
-  console.log(req.body);
   const validationErrors = [];
   if (!validator.isEmail(req.body.email)) {
     validationErrors.push({ msg: 'Please enter a valid email address.' });
@@ -166,6 +165,7 @@ exports.postSignup = (req, res, next) => {
   const user = new User({
     email: req.body.email,
     password: req.body.password,
+    role: req.body.role,
   });
 
   User.findOne({ email: req.body.email }, (err, existingUser) => {
