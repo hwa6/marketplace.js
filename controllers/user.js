@@ -141,6 +141,7 @@ exports.getSignup = (req, res) => {
  * Create a new local account.
  */
 exports.postSignup = (req, res, next) => {
+  console.log(req.body);
   const validationErrors = [];
   if (!validator.isEmail(req.body.email)) {
     validationErrors.push({ msg: 'Please enter a valid email address.' });
@@ -161,9 +162,6 @@ exports.postSignup = (req, res, next) => {
   req.body.email = validator.normalizeEmail(req.body.email, {
     gmail_remove_dots: false,
   });
-
-  console.log(req.body.buyer);
-  console.log(req.body.seller);
 
   const user = new User({
     email: req.body.email,
