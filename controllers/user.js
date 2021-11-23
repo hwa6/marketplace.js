@@ -161,7 +161,6 @@ exports.postSignup = (req, res, next) => {
   req.body.email = validator.normalizeEmail(req.body.email, {
     gmail_remove_dots: false,
   });
-  console.log(req.body.role);
   const user = new User({
     email: req.body.email,
     password: req.body.password,
