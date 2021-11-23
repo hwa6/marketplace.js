@@ -41,7 +41,7 @@ Nathaniel Added this line to test the repository.
 **Henry Edit**:\
 After npm install, duplicate the .env.example file into a new file just called .env\
 Change the second line, 'MONGO_URI =' to the line I put in the groupme.\
-Then it should run when you start the app!
+Then it should run when you start the app!\
 :exclamation::exclamation::exclamation:\
 
 ```bash
@@ -59,11 +59,10 @@ npm install
 nodemon app.js
 ```
 
-Next, you must use the https URL defined by ngrok, for example, `https://hackaton.ngrok.io`
 :exclamation::exclamation::exclamation:\
 **Henry Edit**:\
-I have configured the package such that it should install nodemon by default. If it doesn't that is because I messed up. If
-`nodemon app.js` generates an error, use the command `sudo npm install -g nodemon` to install it on your machine.
+I have configured the package such that it should install nodemon by default. If it doesn't that is because I messed up.\
+If `nodemon app.js` generates an error, use the command `sudo npm install -g nodemon` to install it on your machine.\
 :exclamation::exclamation::exclamation:\
 
 **Note:** I highly recommend installing [Nodemon](https://github.com/remy/nodemon).
@@ -81,6 +80,8 @@ You must start ngrok after starting the project.
 # start ngrok to intercept the data exchanged on port 8080
 ./ngrok http 8080
 ```
+
+Next, you must use the https URL defined by ngrok, for example, `https://hackaton.ngrok.io`
 
 ## Features
 
