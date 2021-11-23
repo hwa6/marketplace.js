@@ -39,10 +39,10 @@ Nathaniel Added this line to test the repository.
 
 :exclamation::exclamation::exclamation:\
 **Henry Edit**:\
-:exclamation::exclamation::exclamation:\
 After npm install, duplicate the .env.example file into a new file just called .env\
 Change the second line, 'MONGO_URI =' to the line I put in the groupme.\
-Then it should run when you start the app! \
+Then it should run when you start the app!
+:exclamation::exclamation::exclamation:\
 
 ```bash
 # Get the latest snapshot
@@ -59,6 +59,20 @@ npm install
 nodemon app.js
 ```
 
+Next, you must use the https URL defined by ngrok, for example, `https://hackaton.ngrok.io`
+:exclamation::exclamation::exclamation:\
+**Henry Edit**:\
+I have configured the package such that it should install nodemon by default. If it doesn't that is because I messed up. If
+`nodemon app.js` generates an error, use the command `sudo npm install -g nodemon` to install it on your machine.
+:exclamation::exclamation::exclamation:\
+
+**Note:** I highly recommend installing [Nodemon](https://github.com/remy/nodemon).
+It watches for any changes in your node.js app and automatically restarts the
+server. Once installed, instead of `node app.js` use `nodemon app.js`. It will
+save you a lot of time in the long run, because you won't need to manually
+restart the server each time you make a small change in code. To install, run
+`sudo npm install -g nodemon`.
+
 **Warning:** If you want to use some API that need https to work (for example Pinterest or facebook),
 you will need to download [ngrok](https://ngrok.com/).
 You must start ngrok after starting the project.
@@ -67,15 +81,6 @@ You must start ngrok after starting the project.
 # start ngrok to intercept the data exchanged on port 8080
 ./ngrok http 8080
 ```
-
-Next, you must use the https URL defined by ngrok, for example, `https://hackaton.ngrok.io`
-
-**Note:** I highly recommend installing [Nodemon](https://github.com/remy/nodemon).
-It watches for any changes in your node.js app and automatically restarts the
-server. Once installed, instead of `node app.js` use `nodemon app.js`. It will
-save you a lot of time in the long run, because you won't need to manually
-restart the server each time you make a small change in code. To install, run
-`sudo npm install -g nodemon`.
 
 ## Features
 
