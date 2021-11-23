@@ -4,9 +4,11 @@ block content
   h1 Hello Seller
   p.lead From here you can view your listings.
   h2 Your Listings
-  u1 
+  table
     for item in items 
-      li= item
+      tr
+        th= item.title 
+        th= item.body
   form(method='POST', action='/newItem')
     input(type='hidden', name='_csrf', value=_csrf)
     h2 Create New Listing
