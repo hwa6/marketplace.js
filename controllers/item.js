@@ -17,5 +17,10 @@ exports.newItem = (req, res) => {
  * Delete item.
  */
 exports.deleteItem = (req, res) => {
+  const key = req.body._id;
+  console.log('Deleting Item with _id ' + key);
+  Item.findByIdAndRemove(key, function onRemove(err, data) {
+    console.log(data);
+  });
   res.redirect('/');
 };
