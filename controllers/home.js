@@ -21,8 +21,12 @@ exports.index = (req, res) => {
       });
     } else if (req.user.role == 'buyer') {
       console.log('Buyer home screen.');
-      res.render('buyerhome', {
-        title: 'Buyer Home',
+      Item.find(function (err, items) {
+        console.log(items);
+        res.render('buyerhome', {
+          title: 'Buyer Home',
+          items: items,
+        });
       });
     }
   }

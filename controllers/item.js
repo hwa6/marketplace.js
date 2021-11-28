@@ -12,3 +12,10 @@ exports.newItem = (req, res) => {
   item.save();
   res.redirect('/');
 };
+/**
+ * DELETE /
+ * Delete item.
+ */
+exports.deleteItem = (req, res) => {
+  res.redirect('/');
+};

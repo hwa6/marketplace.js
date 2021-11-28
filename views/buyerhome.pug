@@ -3,4 +3,14 @@ extends layout
 block content
   h1 Hello Buyer
   p.lead From here you can buy items.
-  
+  h2 All Listings
+  table
+    for item in items 
+      tr
+        th= item.title
+      tr
+        td= item.body
+  form(method='DELETE', action='/deleteItem')
+      | Testing delete route:  
+      input(type='text', name='description', value='1') 
+  input(type = 'submit', value = "Delete first item from database.")
