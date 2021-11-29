@@ -21,3 +21,10 @@ Henry
 
 - Added route to destroy item from database
 - All items will now show up on buyer home screen
+
+### November 29, 2021
+
+Rafaela
+
+- Revamped front end so each item displays nicely
+- Configured buttons to fire DELETE when buyer buys item
