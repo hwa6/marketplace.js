@@ -1,23 +1,30 @@
 extends layout
 
 block content
-  h1 Hello Seller
-  p.lead From here you can view your listings.
+  h1 Hello, Seller!
+  p.lead From here you can view your listings and make a new one.
   h2 Your Listings
-  table
-    for item in items 
-      tr
-        th= item.title 
-        th= item.body
+  for item in items 
+    .mb-2.card
+      h5.card-header= item.creatorEmail
+      .card-body
+        h5.card-title= item.title
+        p.card-text= item.body
+  .pb-2.mt-2.mb-4.border-bottom
+    h3 Create New Listing
   form(method='POST', action='/newItem')
     input(type='hidden', name='_csrf', value=_csrf)
-    h2 Create New Listing
-    p Enter the information for your listing.
-      p
-        | Title: 
-        input(type='text', name='title', value='')
-        | Description: 
-        input(type='text', name='description', value='')  
-    input(type = 'submit', value = "Submit")
+    .form-group.row
+      label.col-sm-1.col-form-label.font-weight-bold.text-left(for='title') Title
+      .col-sm-10
+        input.form-control(type='text', name='title', id='title', placeholder='Title', autofocus, required)
+    .form-group.row
+      label.col-sm-1.col-form-label.font-weight-bold.text-right(for='description') Description
+      .col-md-10
+        input.form-control(type='text', name='description', id='description', placeholder='Description', required)
+    .form-group
+      .offset-sm-1.col-md-7.pl-2
+        button.col-md-3.btn.btn-outline-primary(type='submit')
+          | Submit
 
     

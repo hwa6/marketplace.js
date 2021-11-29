@@ -1,15 +1,17 @@
 extends layout
 
 block content
-  h1 Hello Buyer
+  h1 Hello, Buyer
   p.lead From here you can buy items.
-  h2 All Listings
-  table
-    for item in items 
-      tr
-        th= item.title
-      tr
-        td= item.body
+  .pb-2.mt-2.mb-4.border-bottom
+    h2 Listings
+  for item in items 
+    .mb-2.card
+      h5.card-header= item.creatorEmail
+      .card-body
+        h5.card-title= item.title
+        p.card-text= item.body
+        button#buy.btn.btn-outline-success(type='button') Buy
   //form(method='DELETE', action='/deleteItem')
       //| Testing delete route:  
       //input(type='text', name='title', value='hello') 
