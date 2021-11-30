@@ -61,9 +61,9 @@ exports.findItems = (req, res) => {
         item.title.includes(potentialQuery) ||
         item.body.includes(potentialQuery)
     );
-    console.log(result);
+    console.log('Result');
     res.send(result);
-    console.log(done);
+    console.log('Done');
   });
   res.redirect('/');
 };
