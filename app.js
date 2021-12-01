@@ -166,6 +166,7 @@ app.use(
  */
 app.post('/newItem', itemController.newItem);
 app.post('/deleteItem', itemController.deleteItem);
+//app.get('/searchResult', itemController.findItems);
 /**
  * Primary app routes.
  */
