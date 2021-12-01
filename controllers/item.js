@@ -10,10 +10,13 @@ exports.newItem = async (req, res) => {
   if (description === '') {
     console.log('No description entered. Generating random.');
     console.log('Here');
-    const response = await got('https://api.namefake.com/american/random', {
-      responseType: 'json',
-    });
-    description = response.body.company;
+    const response = await got(
+      'https://geek-jokes.sameerkumar.website/api?format=json',
+      {
+        responseType: 'json',
+      }
+    );
+    description = response.body.joke;
   }
   const item = new Item({
     creatorEmail: req.user.email,
