@@ -165,7 +165,7 @@ app.use(
  * New routes for listings/items
  */
 app.post('/newItem', itemController.newItem);
-app.post('/deleteItem', itemController.deleteItem);
+app.delete('/deleteItem', itemController.deleteItem);
 /**
  * Primary app routes.
  */
