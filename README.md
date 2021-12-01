@@ -69,6 +69,7 @@ Change the second line, 'MONGO_URI =' to the line I put in the groupme.\
 Then it should run when you start the app!\
 :exclamation::exclamation::exclamation:
 
+
 ```bash
 # Get the latest snapshot
 git clone https://github.com/sahat/hackathon-starter.git myproject
