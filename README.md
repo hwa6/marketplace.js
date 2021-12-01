@@ -1,13 +1,38 @@
-Marketplace.js
+Marketplace.js:
 
-This sample marketplace application is built on top of Sahat Yalkabov's Hackathon Stater, a boilerplate for **Node.js** web applications.
-More info can be found here: https://github.com/sahat/hackathon-starter
+Link to the live demo: https://marketplacejs.herokuapp.com
 
-Henry added this line to test the repository.
+Description of Functionality & Technical Details:
 
-This line too.
 
-Nathaniel Added this line to test the repository.
+a) Description: 
+
+This is a simple web application that functions as a marketplace for college students. The user of this application can create an account  either as a Seller or as a Buyer:
+
+
+- Sellers have the option to make a post about the item(s) that they wish to sell. The post consists of the title of the object and a short description about it. In the case that the Seller submits their post without filling in the description part, an outside REST API is used to fill in the blank with a random English name. In their home page, Sellers can also view the posts they have submitted.   
+- Buyers can see all the available listings made by all the Sellers. They have the ability to press the Buy button and “purchase” the item thus deleting it from the available listings catalogue and erasing it from the database. 
+
+
+To build this application we used Sahat Yalkabov's Hackathon Starter, a boilerplate for Node.js web applications. More info can be found here: https://github.com/sahat/hackathon-starter. 
+
+b) Technical Details:
+
+- The outside REST API that we used is: https://api.namefake.com/american/random
+- The framework not discussed/used in class that we utilized in this app is: Bootstrap
+- The database program we used to store the users’ information is: MongoDB
+- The application was deployed on: Heroku 
+
+Roles:
+
+- Adjei, Nathaniel - Database / PM
+- Anderson, Henry - Frontend / PM
+- Karyofylli ,Eleni - Frontend
+- Liu, Yuzhe - Database 
+- Mantoan Borges, Rafaela - Backend
+- Yuan, Jiaqiang - Backend
+ 
+Installation Instructions: 
 
 ## Table of Contents
 
