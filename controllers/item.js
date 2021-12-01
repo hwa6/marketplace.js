@@ -47,6 +47,7 @@ exports.deleteItem = (req, res) => {
  * Search for items.
  */
 exports.findItems = (req, res) => {
+  console.log('Here');
   let queryObject = req.query;
   //this simplifies the query key value pair. I don't want, say, "search":"dogs and cats". I just want "dogs and cats"
   let query = queryObject.search;
