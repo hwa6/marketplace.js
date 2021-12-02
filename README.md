@@ -46,7 +46,7 @@ npm install
 
 After npm install, duplicate the .env.example file into a new file just called .env\
 Change the second line, 'MONGO_URI =' to the respective line for your database.\
-Then it should run when you start the app!\
+Then it should run when you start the app!
 
 ```bash
 
@@ -56,7 +56,7 @@ nodemon app.js
 
 I have configured the package such that it should install nodemon by default. If it doesn't that is because I messed up.\
 If `nodemon app.js` generates an error, use the command `sudo npm install -g nodemon` to install it on your machine.\
-A similar issue may also occur with got. Use the command `npm install got`\
+A similar issue may also occur with got. Use the command `npm install got`
 
 ## Features
 
@@ -195,7 +195,7 @@ Just don't forget to update `extends ../layout` and corresponding
 
 The MIT License (MIT)
 
-Copyright (c) 2014-2021 Henry Anderson
+Copyright (c) 2014-2021 marketplace.js
 
 Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
 
