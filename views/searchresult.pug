@@ -14,7 +14,7 @@ block content
         button.btn.btn-outline-success(type='button', value=item._id, onclick='myFunction(this.value)') Buy
         script.
           function myFunction(id) {
-            fetch("/deleteItem", {
+            fetch("/item", {
               method: 'delete',
               headers: {
                 'Content-type': 'application/json',

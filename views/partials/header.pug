@@ -22,7 +22,7 @@
             a.nav-link(href='/signup') Create Account
         else
           if user.role == "buyer"
-            form.form-inline.my-2.my-lg-0(method='GET', action='/findItems')
+            form.form-inline.my-2.my-lg-0(method='GET', action='/item')
               input(type='hidden', name='_csrf', value=_csrf)
               input.form-control.mr-sm-2(type='search', name='search', id='search', placeholder='Search', aria-label='Search')
               button.btn.btn-outline-success.my-2.my-sm-0(type='submit') Search

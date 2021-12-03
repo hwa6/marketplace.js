@@ -28,6 +28,7 @@ exports.newItem = async (req, res) => {
  * Delete item.
  */
 exports.deleteItem = (req, res) => {
+  console.log(req.body);
   const key = req.body._id;
   console.log('Deleting Item with _id ' + key);
   Item.findByIdAndRemove(key, function onRemove(err, data) {
@@ -55,11 +56,9 @@ exports.findItems = (req, res) => {
       query +
       ' in their title or description.'
   );
-  Item.find({}, { _id: 0, __v: 0 }, function (err, matchingItems) {
+  Item.find({}, { __v: 0 }, function (err, matchingItems) {
     let result = matchingItems.filter(
-      (item) =>
-        item.title.includes(query) ||
-        item.body.includes(query)
+      (item) => item.title.includes(query) || item.body.includes(query)
     );
     res.render('searchresult', {
       title: 'Search Result',
