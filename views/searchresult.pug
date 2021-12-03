@@ -1,0 +1,32 @@
+extends layout
+
+block content
+  h1 Hello, Buyer
+  p.lead From here you can buy items.
+  .pb-2.mt-2.mb-4.border-bottom
+    h2 Listings that Match Your Search
+  for item in items 
+    .mb-2.card
+      h5.card-header= item.creatorEmail
+      .card-body
+        h5.card-title= item.title
+        p.card-text= item.body
+        button.btn.btn-outline-success(type='button', value=item._id, onclick='myFunction(this.value)') Buy
+        script.
+          function myFunction(id) {
+            fetch("/deleteItem", {
+              method: 'delete',
+              headers: {
+                'Content-type': 'application/json',
+              },
+              body: JSON.stringify({
+                _id: id,
+                _csrf: document.querySelector('meta[name="csrf-token"]').content
+              })
+            })
+            .then(response => {
+              window.location = response.url;
+              response.json();
+            })
+            .catch(err => console.log(err));
+          }

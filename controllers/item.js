@@ -39,7 +39,7 @@ exports.deleteItem = (req, res) => {
         '.'
     );
   });
-  res.redirect('/');
+  res.redirect(303, '/');
 };
 
 /**
@@ -61,9 +61,9 @@ exports.findItems = (req, res) => {
         item.title.includes(query) ||
         item.body.includes(query)
     );
-    console.log('Result');
-    console.log(result);
-    console.log('Done');
+    res.render('searchresult', {
+      title: 'Search Result',
+      items: result,
+    });
   });
-  res.redirect('/');
 };
