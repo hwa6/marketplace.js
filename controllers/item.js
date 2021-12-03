@@ -58,11 +58,11 @@ exports.findItems = (req, res) => {
   Item.find({}, { _id: 0, __v: 0 }, function (err, matchingItems) {
     let result = matchingItems.filter(
       (item) =>
-        item.title.includes(potentialQuery) ||
-        item.body.includes(potentialQuery)
+        item.title.includes(query) ||
+        item.body.includes(query)
     );
     console.log('Result');
-    res.send(result);
+    console.log(result);
     console.log('Done');
   });
   res.redirect('/');

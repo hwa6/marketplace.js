@@ -11,14 +11,13 @@ block content
       .card-body
         h5.card-title= item.title
         p.card-text= item.body
-        var.csrf 
         button.btn.btn-outline-success(type='button', value=item._id, onclick='myFunction(this.value)') Buy
         script.
           function myFunction(id) {
             fetch("/deleteItem", {
               method: 'delete',
               headers: {
-                'Content-type': 'application/json'
+                'Content-type': 'application/json',
               },
               body: JSON.stringify({
                 _id: id,
