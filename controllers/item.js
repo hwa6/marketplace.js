@@ -58,7 +58,9 @@ exports.findItems = (req, res) => {
   );
   Item.find({}, { __v: 0 }, function (err, matchingItems) {
     let result = matchingItems.filter(
-      (item) => item.title.includes(query) || item.body.includes(query)
+      (item) =>
+        item.title.toLowerCase().includes(query) ||
+        item.body.toLowerCase().includes(query)
     );
     res.render('searchresult', {
       title: 'Search Result',
