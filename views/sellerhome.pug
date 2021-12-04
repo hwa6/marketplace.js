@@ -12,7 +12,7 @@ block content
         p.card-text= item.body
   .pb-2.mt-2.mb-4.border-bottom
     h3 Create New Listing
-  form(method='POST', action='/newItem')
+  form(method='POST', action='/item')
     input(type='hidden', name='_csrf', value=_csrf)
     .form-group.row
       label.col-sm-1.col-form-label.font-weight-bold.text-left(for='title') Title

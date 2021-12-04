@@ -10,13 +10,10 @@ exports.newItem = async (req, res) => {
   if (description === '') {
     console.log('No description entered. Generating random.');
     console.log('Here');
-    const response = await got(
-      'https://geek-jokes.sameerkumar.website/api?format=json',
-      {
-        responseType: 'json',
-      }
-    );
-    description = response.body.joke;
+    const response = await got('https://api.namefake.com/american/random', {
+      responseType: 'json',
+    });
+    description = response.body.company;
   }
   const item = new Item({
     creatorEmail: req.user.email,
@@ -31,6 +28,7 @@ exports.newItem = async (req, res) => {
  * Delete item.
  */
 exports.deleteItem = (req, res) => {
+  console.log(req.body);
   const key = req.body._id;
   console.log('Deleting Item with _id ' + key);
   Item.findByIdAndRemove(key, function onRemove(err, data) {
@@ -42,7 +40,7 @@ exports.deleteItem = (req, res) => {
         '.'
     );
   });
-  res.redirect('/');
+  res.redirect(303, '/');
 };
 
 /**
@@ -50,7 +48,6 @@ exports.deleteItem = (req, res) => {
  * Search for items.
  */
 exports.findItems = (req, res) => {
-  console.log('Here');
   let queryObject = req.query;
   //this simplifies the query key value pair. I don't want, say, "search":"dogs and cats". I just want "dogs and cats"
   let query = queryObject.search;
@@ -59,15 +56,13 @@ exports.findItems = (req, res) => {
       query +
       ' in their title or description.'
   );
-  Item.find({}, { _id: 0, __v: 0 }, function (err, matchingItems) {
+  Item.find({}, { __v: 0 }, function (err, matchingItems) {
     let result = matchingItems.filter(
-      (item) =>
-        item.title.includes(potentialQuery) ||
-        item.body.includes(potentialQuery)
+      (item) => item.title.includes(query) || item.body.includes(query)
     );
-    console.log('Result');
-    res.send(result);
-    console.log('Done');
+    res.render('searchresult', {
+      title: 'Search Result',
+      items: result,
+    });
   });
-  res.redirect('/');
 };

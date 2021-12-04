@@ -11,6 +11,22 @@ block content
       .card-body
         h5.card-title= item.title
         p.card-text= item.body
-        form(method='POST', action='/deleteItem')
-          input(type='hidden', name='_csrf', value=_csrf)
-          button#buy.btn.btn-outline-success(type='submit' name='_id' value=item._id) Buy
+        button.btn.btn-outline-success(type='button', value=item._id, onclick='myFunction(this.value)') Buy
+        script.
+          function myFunction(id) {
+            fetch("/item", {
+              method: 'delete',
+              headers: {
+                'Content-type': 'application/json',
+              },
+              body: JSON.stringify({
+                _id: id,
+                _csrf: document.querySelector('meta[name="csrf-token"]').content
+              })
+            })
+            .then(response => {
+              window.location = response.url;
+              response.json();
+            })
+            .catch(err => console.log(err));
+          }
