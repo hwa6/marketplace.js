@@ -70,9 +70,9 @@ body {
   font-size: 1rem;
   font-weight: 400;
   line-height: 1.5;
-  color: #212529;
+  color: #565656;
   text-align: left;
-  background-color: #fff;
+  background-color: #95d8eb;
 }
 
 [tabindex='-1']:focus:not(:focus-visible) {
@@ -4558,7 +4558,7 @@ input[type='button'].btn-block {
   word-wrap: break-word;
   background-color: #fff;
   background-clip: border-box;
-  border: 1px solid rgba(0, 0, 0, 0.125);
+  border: 1px solid #0076Be;
   border-radius: 0.25rem;
 }
 .card > hr {
